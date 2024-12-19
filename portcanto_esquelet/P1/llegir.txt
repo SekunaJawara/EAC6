@@ -1,0 +1,17 @@
+# Informació de l'entorn de desenvolupament
+
+## 1. Configuració general
+Aquest projecte s'ha desenvolupat i executat en un entorn local utilitzant una màquina virtual amb Linux. Les característiques de l'entorn són les següents:
+
+- **Sistema Operatiu**: Ubuntu 20.04 LTS 
+- **Màquina Virtual**: VirtualBox 
+- **Entorn de desenvolupament integrat (IDE)**: Visual Studio Code.
+  - Extensions utilitzades:
+    - Python (per suport a programació i debugging en Python).
+
+## 2. Entorn virtual (venv)
+El projecte inclou un entorn virtual preconfigurat (`venv`) dins del directori principal. Aquest `venv` s'ha preparat per garantir la reproduïbilitat de les dependències i el bon funcionament del projecte. Els passos per utilitzar-lo són:
+
+1. Activar l'entorn virtual:
+   ```bash
+   source venv/bin/activate

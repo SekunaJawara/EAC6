@@ -1,0 +1,23 @@
+Guardar els models
+Guardar els models és essencial per diverses raons:
+
+Reutilització: Un cop entrenat, un model pot ser reutilitzat sense necessitat de reentrenar-lo, estalviant temps i recursos computacionals.
+Consistència: Permet mantenir la consistència dels resultats, ja que el model guardat no canvia a menys que es torni a entrenar.
+Desplegament: Els models guardats poden ser desplegats en entorns de producció per fer prediccions en temps real.
+Comparació: Facilita la comparació entre diferents versions del model per avaluar millores o regressions en el rendiment.
+
+Llibreria pickle
+La llibreria pickle és necessària perquè permet serialitzar objectes Python complexos, com ara models de machine learning, en un format binari que pot ser guardat en un fitxer. Això permet desar i carregar models de manera eficient. pickle és especialment útil perquè:
+
+Simplicitat: És fàcil d'utilitzar amb una interfície senzilla per desar (pickle.dump) i carregar (pickle.load) objectes.
+Compatibilitat: Funciona amb la majoria d'objectes Python, incloent-hi models de biblioteques com scikit-learn.
+Rendiment: És ràpid i eficient en termes de temps i espai d'emmagatzematge.
+
+Associació entre tipus de ciclistes i classes del model
+Per associar els 4 tipus de ciclistes amb les classes que ha trobat el model, he seguit aquests passos:
+
+Definició dels tipus: He definit els tipus de ciclistes basant-me en patrons de comportament específics, com ara el temps de pujada i baixada.
+Entrenament del model: He entrenat un model de clustering (KMeans) amb les dades dels ciclistes.
+Assignació de labels: Després de l'entrenament, el model assigna una etiqueta (label) a cada ciclista, indicant a quin clúster pertany.
+Mapeig de tipus a labels: He creat un diccionari que associa cada tipus de ciclista amb el label corresponent del model. Això es fa analitzant les característiques dels ciclistes en cada clúster i assignant el tipus més representatiu a cada clúster.
+Aquest procés permet identificar fàcilment a quin tipus pertany cada ciclista segons les classes trobades pel model, facilitant l'anàlisi i la generació d'informes.

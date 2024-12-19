@@ -1,0 +1,6 @@
+Els fitxers ubicats a la carpeta informes contenen informació detallada sobre els ciclistes, agrupats en diferents clústers. Cada fitxer correspon a un clúster específic i inclou les dades dels ciclistes assignats a aquest clúster pel model de clustering (KMeans). Aquesta informació és útil per analitzar les característiques de cada grup de ciclistes i identificar patrons de comportament similars.
+
+Contingut dels fitxers a la carpeta informes
+Nom del fitxer: Cada fitxer està anomenat segons el clúster al qual pertany, per exemple, cluster_0.csv, cluster_1.csv, etc.
+Dades dels ciclistes: Els fitxers contenen les dades dels ciclistes, incloent-hi atributs com l'ID del ciclista, el temps de pujada (temps_pujada), el temps de baixada (temps_baixada), i altres atributs rellevants.
+Etiquetes de clúster: Cada ciclista està etiquetat amb el clúster al qual ha estat assignat pel model de clustering.
