@@ -16,7 +16,7 @@ from sklearn.metrics.cluster import homogeneity_score, completeness_score, v_mea
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def load_dataset(path):
-	"""
+    """
 	Carrega el dataset de registres dels ciclistes
 
 	arguments:
@@ -24,11 +24,11 @@ def load_dataset(path):
 
 	Returns: dataframe
 	"""
-	df = pd.read_csv(path)
-	return df
+    df = pd.read_csv(path)
+    return df
 
 def EDA(df):
-	"""
+    """
 	Exploratory Data Analysis del dataframe
 
 	arguments:
@@ -38,26 +38,26 @@ def EDA(df):
 	"""
 # Imprimir título y luego DataFrame y otras funciones, con títulos para cada sección
 
-	print('EDA\n')  # Título general
-	print('Información del DataFrame:\n')
-	df.info()  # df.info() imprime la información del DataFrame
+    print('EDA\n')  # Título general
+    print('Información del DataFrame:\n')
+    df.info()  # df.info() imprime la información del DataFrame
 
-	print('\nDescripción estadística del DataFrame:\n')
-	print(df.describe())  # Estadísticas descriptivas
+    print('\nDescripción estadística del DataFrame:\n')
+    print(df.describe())  # Estadísticas descriptivas
 
-	print('\nPrimeras filas del DataFrame:\n')
-	print(df.head())  # Primeras 5 filas del DataFrame
+    print('\nPrimeras filas del DataFrame:\n')
+    print(df.head())  # Primeras 5 filas del DataFrame
 
-	print('\nValores nulos por columna:\n')
-	print(df.isnull().sum())  # Cantidad de valores nulos por columna
+    print('\nValores nulos por columna:\n')
+    print(df.isnull().sum())  # Cantidad de valores nulos por columna
 
-	print('\nTipos de datos de las columnas:\n')
-	print(df.dtypes)  # Tipos de datos de cada columna
+    print('\nTipos de datos de las columnas:\n')
+    print(df.dtypes)  # Tipos de datos de cada columna
 
-	return None
+    return None
 
 def clean(df):
-	"""
+    """
 	Elimina les columnes que no són necessàries per a l'anàlisi dels clústers
 
 	arguments:
@@ -65,13 +65,13 @@ def clean(df):
 
 	Returns: dataframe
 	"""
-	df = df.drop('id', axis=1)
-	print('Columna id eliminada')
-	print(df.head())
-	return df
+    df = df.drop('id', axis=1)
+    print('Columna id eliminada')
+    print(df.head())
+    return df
 
 def extract_true_labels(df):
-	"""
+    """
 	Guardem les etiquetes dels ciclistes (BEBB, ...)
 
 	arguments:
@@ -79,12 +79,12 @@ def extract_true_labels(df):
 
 	Returns: numpy ndarray (true labels)
 	"""
-	true_labels = df['categoria'].values
-	return true_labels
+    true_labels = df['categoria'].values
+    return true_labels
 
 
 def visualitzar_pairplot(df):
-	"""
+    """
 	Genera una imatge combinant entre sí tots els parells d'atributs.
 	Serveix per apreciar si es podran trobar clústers.
 
@@ -93,12 +93,12 @@ def visualitzar_pairplot(df):
 
 	Returns: None
 	"""
-	sns.pairplot(df)
-	plt.savefig('../img/output_plot.png')
-	return None
+    sns.pairplot(df)
+    plt.savefig('../img/output_plot.png')
+    return None
 
 def clustering_kmeans(data, n_clusters=4):
-	"""
+    """
 	Crea el model KMeans de sk-learn, amb 4 clusters (estem cercant 4 agrupacions)
 	Entrena el model
 
@@ -107,11 +107,10 @@ def clustering_kmeans(data, n_clusters=4):
 
 	Returns: model (objecte KMeans)
 	"""
-	clustering_model = KMeans(n_clusters=n_clusters)
-	clustering_model.fit(data)
-	return clustering_model
-	# TODO
-	return None
+    clustering_model = KMeans(n_clusters=n_clusters)
+    clustering_model.fit(data)
+    return clustering_model
+    return None
 
 def visualitzar_clusters(data, labels):
     """
@@ -120,14 +119,19 @@ def visualitzar_clusters(data, labels):
     arguments:
         data -- el dataset sobre el qual hem entrenat
         labels -- l'array d'etiquetes a què pertanyen les dades (hem assignat les dades a un dels 4 clústers)
-
+    
     Returns: None
     """
     colormap = ['r', 'g', 'b', 'y']
     plt.figure()
     for cluster_num in range(4):
         cluster_points = data[labels == cluster_num]
-        plt.scatter(cluster_points.iloc[:, 0], cluster_points.iloc[:, 1], color=colormap[cluster_num], label=f'Cluster {cluster_num}')
+    plt.scatter(
+		cluster_points.iloc[:, 0], 
+		cluster_points.iloc[:, 1], 
+		color=colormap[cluster_num], 
+		label=f'Cluster {cluster_num}'
+	)
     plt.legend()
     plt.savefig('../img/clusters_plot.png')
     plt.close()
@@ -206,7 +210,7 @@ def generar_informes(df, tipus):
     Returns: None
     """
     # Comprovar que la carpeta "informes/" existeix, si no, crear-la
-    informes_dir = 'cd ../informes/'
+    informes_dir = '../informes/'
     os.makedirs(informes_dir, exist_ok=True)
 
     # Generar un fitxer per a cada clúster

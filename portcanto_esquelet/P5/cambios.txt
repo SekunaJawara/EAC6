@@ -1,0 +1,5 @@
+Eliminar espacios en blanco al final de las líneas: Se eliminaron los espacios en blanco al final de algunas líneas del código.
+Agregar un docstring al módulo: Se agregó un docstring al inicio del archivo para describir el módulo y su propósito.
+Renombrar constantes para que sigan la convención de nombres en mayúsculas: Se renombraron las constantes para que cumplieran con la convención de usar nombres en mayúsculas.
+Especificar la codificación al usar open: Se añadió el parámetro encoding='utf-8' al abrir el archivo CSV para garantizar que se use la codificación correcta.
+Agregar una nueva línea al final del archivo: Se agregó una nueva línea al final del archivo para cumplir con las convenciones de estilo.

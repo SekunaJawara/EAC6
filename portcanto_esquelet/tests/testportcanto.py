@@ -2,11 +2,18 @@
 @ IOC - CE IABD
 """
 import unittest
-import os
 import pickle
+import sys
+import os
+import pandas as pd
+
+# Afegeix P1 i P2 al sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'P1')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'P2')))
 
 from generardataset import generar_dataset
-from clustersciclistes import load_dataset, clean, extract_true_labels, clustering_kmeans, homogeneity_score, completeness_score, v_measure_score
+from clustersciclistes import load_dataset, clean, extract_true_labels, clustering_kmeans
+
 
 class TestGenerarDataset(unittest.TestCase):
 	"""
@@ -36,7 +43,7 @@ class TestGenerarDataset(unittest.TestCase):
 		"""
 		Test la longitud de l'array
 		"""
-		arr = generar_dataset(200, 1, dicc[0])
+		arr = generar_dataset(200, 1, dicc)
 		self.assertEqual(len(arr), 200)
 
 	def test_valorsmitjatp(self):
@@ -44,7 +51,7 @@ class TestGenerarDataset(unittest.TestCase):
 		Test del valor mitjà del tp
 		"""
 
-		arr = generar_dataset(100, 1, dicc[0])
+		arr = generar_dataset(100, 1, dicc)
 		#assertLess(a, b)
 		#assertGreater(a, b)
 		#arr.append(generar_dataset(100, 1, dicc[3]))
@@ -56,7 +63,11 @@ class TestGenerarDataset(unittest.TestCase):
 		"""
 		Test del valor mitjà del tp
 		"""
-		arr = generar_dataset(100, 1, dicc[1])
+		arr = generar_dataset(100, 1, dicc)
+		print(type(arr))
+		print(arr)
+		arr = pd.DataFrame(arr)  # Convertir lista de diccionarios a DataFrame
+		arr = arr.to_numpy()
 		arr_tb = [row[1] for row in arr] # la columna tp és la segona
 		tb_mig = sum(arr_tb)/len(arr_tb)
 		self.assertGreater(tb_mig, 2000)
@@ -72,7 +83,7 @@ class TestClustersCiclistes(unittest.TestCase):
 	ciclistes_data = load_dataset(path_dataset)
 	ciclistes_data_clean = clean(ciclistes_data)
 	true_labels = extract_true_labels(ciclistes_data_clean)
-	ciclistes_data_clean = ciclistes_data_clean.drop('tipus', axis=1) # eliminem el tipus, ja no interessa
+	ciclistes_data_clean = ciclistes_data_clean.drop('categoria', axis=1) # eliminem el tipus, ja no interessa
 
 	clustering_model = clustering_kmeans(ciclistes_data_clean)
 	with open('model/clustering_model.pkl', 'wb') as f:
