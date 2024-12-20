@@ -55,7 +55,10 @@ class TestGenerarDataset(unittest.TestCase):
 		#assertLess(a, b)
 		#assertGreater(a, b)
 		#arr.append(generar_dataset(100, 1, dicc[3]))
-		arr_tp = [row[1] for row in arr] # la columna tp és la segona
+		#print(arr)
+		arr = pd.DataFrame(arr)  # Convertir lista de diccionarios a DataFrame
+		arr = arr.to_numpy()
+		arr_tp = [row[2] for row in arr] # la columna tp és la segona
 		tp_mig = sum(arr_tp)/len(arr_tp)
 		self.assertLess(tp_mig, 3400)
 
@@ -64,11 +67,11 @@ class TestGenerarDataset(unittest.TestCase):
 		Test del valor mitjà del tp
 		"""
 		arr = generar_dataset(100, 1, dicc)
-		print(type(arr))
-		print(arr)
+		#print(type(arr))
+		#print(arr)
 		arr = pd.DataFrame(arr)  # Convertir lista de diccionarios a DataFrame
 		arr = arr.to_numpy()
-		arr_tb = [row[1] for row in arr] # la columna tp és la segona
+		arr_tb = [row[2] for row in arr] # la columna tp és la segona
 		tb_mig = sum(arr_tb)/len(arr_tb)
 		self.assertGreater(tb_mig, 2000)
 
@@ -95,7 +98,7 @@ class TestClustersCiclistes(unittest.TestCase):
 		Comprovem que una columna existeix
 		"""
 
-		self.assertIn('tp', ciclistes_data_clean.columns)
+		self.assertIn('temps_pujada', ciclistes_data_clean.columns)
 
 	def test_data_labels(self):
 		"""

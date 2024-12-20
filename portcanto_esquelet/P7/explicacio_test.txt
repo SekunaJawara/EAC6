@@ -1,0 +1,15 @@
+Els tests unitaris són molt importants en el desenvolupament de programari perquè ens ajuden a garantir que cada part
+del codi funcioni correctament per si sola. Són útils perquè permeten detectar errors en fases primerenques del desenvolupament,
+evitant que els problemes creixin quan el projecte avança. A més, faciliten el manteniment del codi, ja que quan es fan canvis, 
+els tests asseguren que la funcionalitat original segueixi sent correcta, evitant regressions.
+
+També serveixen com una mena de documentació, ja que expliquen com es preveu que funcioni cada funció o mòdul, així com 
+hauria de comportar-se en diferents situacions. Això és molt útil quan es treballa en equip o quan es reprèn un projecte
+després de temps. Els tests unitaris també permeten un desenvolupament més ràpid i segur, ja que ajuda a comprovar els 
+canvis realitzats immediatament.
+
+Un altre punt a favor és que permeten detectar errors de manera ràpida i eficient, cosa que és molt més fàcil que trobar-los 
+durant les fases més avançades de proves. Això dóna més confiança al desenvolupador, ja que sap que el codi està sent verificat
+contínuament. Finalment, els tests unitaris també són molt útils quan es vol fer un refactoritzat del codi, ja que ajuden 
+a assegurar que el comportament funcional del programa es manté igual després dels canvis. En resum, els tests unitaris són una 
+eina fonamental per garantir que el programari sigui fiable, fàcil de mantenir i sense errors.

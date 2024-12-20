@@ -1,0 +1,59 @@
+https://github.com/SekunaJawara/EAC6
+
+
+Per exportar el teu projecte a GitHub, segueix aquests passos:
+
+Crear un repositori en GitHub
+Accedeix a [GitHub](https://github.com) i inicia sessió. Fes clic a `New` per crear un nou repositori. Introdueix un nom per al repositori i selecciona si vols que sigui públic o privat. Finalment, fes clic a `Create repository`.
+
+Configurar el repositori local
+Obre una terminal i navega fins al directori del teu projecte:
+
+cd /home/usuario/EAC6/portcanto_esquelet
+
+Inicialitza un nou repositori Git:
+
+git init
+
+Afegeix l'URL del repositori remot:
+
+git remote add origin https://github.com/SekunaJawara/EAC6.git
+
+Afegir i confirmar els canvis
+Afegeix tots els fitxers al repositori local:
+
+git add .
+
+Confirma els canvis amb un missatge de confirmació:
+
+git commit -m "Primera versió del projecte"
+
+Pujar el projecte a GitHub
+Puja els canvis al repositori remot:
+
+git push -u origin master
+
+Flux de treball habitual
+1. **Fer canvis**: Realitza els canvis necessaris al teu projecte.
+2. **Afegir canvis**: Afegeix els fitxers modificats:
+
+git add .
+
+3. **Confirmar canvis**: Confirma els canvis amb un missatge descriptiu:
+
+git commit -m "Descripció dels canvis"
+
+4. **Pujar canvis**: Puja els canvis al repositori remot:
+
+git push
+
+Exemple complet
+
+cd /home/usuario/EAC6/portcanto_esquelet
+git init
+git remote add origin https://github.com/SekunaJawara/EAC6.git
+git add .
+git commit -m "Primera versió del projecte"
+git push -u origin master
+
+Aquest és el flux de treball bàsic per exportar i mantenir el meu projecte a GitHub.
