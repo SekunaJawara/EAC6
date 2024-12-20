@@ -8,8 +8,8 @@ import os
 import pandas as pd
 
 # Afegeix P1 i P2 al sys.path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'P1')))
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'P2')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from generardataset import generar_dataset
 from clustersciclistes import load_dataset, clean, extract_true_labels, clustering_kmeans
